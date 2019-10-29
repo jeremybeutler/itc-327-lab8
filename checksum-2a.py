@@ -24,3 +24,30 @@
 # Output CRC encoder byte to screen
 # End loop
 # Output final CRC checksum byte
+
+counter = 0
+data_stream = "00001100"
+pb1, pb2, pb3, pb4, pb5, pb6, pb7, pb8 = 0
+
+for bit in data_stream:
+    # Define next states for each bit
+    nb1 = bit
+    nb2 = pb1
+    nb3 = pb2 ^ pb8
+    nb4 = pb3 ^ pb8
+    nb5 = pb4 ^ pb8
+    nb6 = pb5
+    nb7 = pb6
+    nb8 = pb7
+    # Move next states into present states
+    pb1 = nb1
+    pb2 = nb2
+    pb3 = nb3
+    pb4 = nb4
+    pb5 = nb5
+    pb6 = nb6
+    pb7 = nb7
+    pb8 = nb8
+
+
+    counter += 1
